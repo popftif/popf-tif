@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# To build POPF using the CLP library, rather than CPLEX, you can execute this script, i.e. type:
+#
+#  ./build-instructions.txt
+#
+# ...at the shell prompt.  To use CPLEX, use one of the two enclosed scripts: one looks for the x86 (32-bit libraries), the other for the 64-bit libraries.
+
+
+mkdir ../debug
+cd ../debug
+
+
+cmake -DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Debug ../src
+
+mkdir ../release
+cd ../release
+cmake -DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Release ../src
+
+
+cd ../src
+
+echo "If cmake succeeded (i.e. no errors such as missing libraries were reported),"
+echo "you can make a debug build by:"
+echo 
+echo "cd ../debug”
+echo "make popf3-clp"
+echo
+echo "Or, for a release build:\n";
+echo
+echo "cd ../release“
+echo "make popf3-clp"
+
