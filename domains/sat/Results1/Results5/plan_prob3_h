@@ -1,0 +1,17 @@
+;;;; Solution Found
+; States evaluated: 65
+; Cost: 0.856
+; External Solver: 0.000
+; Time 0.01
+0.000: (fly origin s16s)  [82.000]
+943.001: (dospiral s16s s16e spiral16)  [299.000]
+1242.002: (fly s16e s16s)  [38.000]
+1280.003: (dospiral s16s s16e spiral16)  [299.000]
+1579.004: (fly s16e s16s)  [38.000]
+1617.005: (dospiral s16s s16e spiral16)  [299.000]
+1916.006: (fly s16e s16s)  [38.000]
+1954.007: (dospiral s16s s16e spiral16)  [299.000]
+2253.008: (fly s16e s16s)  [38.000]
+2291.009: (dospiral s16s s16e spiral16)  [299.000]
+2590.010: (fly s16e s16s)  [38.000]
+2628.011: (dospiral s16s s16e spiral16)  [299.000]

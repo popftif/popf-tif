@@ -1,0 +1,3 @@
+spiral1 0.8 s1
+spiral2 0.8 s1 s2
+spiral3 0.8 s3

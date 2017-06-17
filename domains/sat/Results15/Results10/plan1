@@ -1,0 +1,6 @@
+0.000: (fly origin s1s)  [84.000]
+581.001: (dospiral s1s s1e spiral1)  [299.000]
+880.002: (fly s1e s1s)  [38.000]
+918.003: (dospiral s1s s1e spiral1)  [299.000]
+1217.004: (fly s1e s2s)  [136.000]
+1353.005: (dospiral s2s s2e spiral2)  [299.000]

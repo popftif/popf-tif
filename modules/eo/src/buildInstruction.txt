@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir ../release
+cd ../release
+
+cmake -DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Release ../src/
+
+cd ../src

@@ -1,0 +1,56 @@
+(define (problem prob)
+(:domain UAV)
+(:objects v-628223 v-628879 v-636586 v-636281 v-635317  - destination
+        spiral15 spiral16  - spiral
+         - smallLawnmower
+        - largeLawnmower
+       origin s15s s15e s16s s16e  - waypoint)
+(:init
+  (= (n-pattern) 0)
+  (= (expected-time) 0)
+  (= (previous-expected-time) 0)
+  (= (total-probability) 0)
+  (= (previous-total-probability) 0)
+(= (heuristic-expected spiral16) 0.001)
+(= (heuristic-approximation spiral16) 0.001)
+(= (heuristic-expected spiral15) 0.001)
+(= (heuristic-approximation spiral15) 0.001)
+  (at origin)
+  (= (previous-probability v-628223) 0.2)
+  (= (probability v-628223) 0.2)
+  (= (previous-probability v-628879) 0.2)
+  (= (probability v-628879) 0.2)
+  (= (previous-probability v-636586) 0.2)
+  (= (probability v-636586) 0.2)
+  (= (previous-probability v-636281) 0.2)
+  (= (probability v-636281) 0.2)
+  (= (previous-probability v-635317) 0.2)
+  (= (probability v-635317) 0.2)
+  (= (is-doing spiral15) 0)
+  (= (timefor spiral15) 299)
+  (beginAt s15s spiral15)
+  (endAt s15e spiral15)
+  (at 968 (active spiral15))
+  (at 2040 (not (active spiral15)))
+  (= (n-pattern-active spiral15) 1504.0)
+ (= (distance origin s15s) 178)
+  (= (distance s15e s15s) 38)
+  (= (distance s15e s16s) 269)
+  (= (is-doing spiral16) 0)
+  (= (timefor spiral16) 299)
+  (beginAt s16s spiral16)
+  (endAt s16e spiral16)
+  (at 673 (active spiral16))
+  (at 1787 (not (active spiral16)))
+  (= (n-pattern-active spiral16) 1230.0)
+ (= (distance origin s16s) 86)
+  (= (distance s16e s15s) 241)
+  (= (distance s16e s16s) 38)
+)
+(:goal (and (> (total-probability) 0)))
+(:metric maximize ( - (total-probability) (* 0.1 (expected-time)))))
+; SpiralSearchPattern 15 12617.0 98632.0 2000.0 2500.0 299 968 2040 214
+; SpiralSearchPattern 16 24617.0 88132.0 2000.0 2500.0 299 673 1787 206
+; UAV 19124.47772868799 89081.60739164067 64.99963475925125 -0.21790173001741708 true 0.0
+; Target 19409.92838250486 88730.82655062217 -2.544832793095165 10.918441919330954 true 1634 4386.0 91110.75
+; Time 4035 false true

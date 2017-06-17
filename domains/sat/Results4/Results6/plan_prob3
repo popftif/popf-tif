@@ -1,0 +1,12 @@
+;;;; Solution Found
+; States evaluated: 910
+; Cost: 0.004
+; Time 0.13
+0.000: (fly origin s23s)  [38.000]
+580.001: (dospiral s23s s23e spiral23)  [299.000]
+879.002: (fly s23e s23s)  [38.000]
+917.003: (dospiral s23s s23e spiral23)  [299.000]
+1216.004: (fly s23e s23s)  [38.000]
+1254.005: (dospiral s23s s23e spiral23)  [299.000]
+1553.006: (fly s23e s22s)  [59.000]
+1612.007: (dospiral s22s s22e spiral22)  [299.000]

@@ -1,0 +1,19 @@
+;;;; Solution Found
+; States evaluated: 73
+; Cost: 0.873
+; External Solver: 0.000
+; Time 0.01
+0.000: (fly origin s25s)  [124.000]
+1394.001: (dospiral s25s s25e spiral25)  [299.000]
+1693.002: (fly s25e s25s)  [38.000]
+1731.003: (dospiral s25s s25e spiral25)  [299.000]
+2030.004: (fly s25e s25s)  [38.000]
+2068.005: (dospiral s25s s25e spiral25)  [299.000]
+2367.006: (fly s25e s25s)  [38.000]
+2405.007: (dospiral s25s s25e spiral25)  [299.000]
+2704.008: (fly s25e s25s)  [38.000]
+2742.009: (dospiral s25s s25e spiral25)  [299.000]
+3041.010: (fly s25e s25s)  [38.000]
+3079.011: (dospiral s25s s25e spiral25)  [299.000]
+3378.012: (fly s25e s25s)  [38.000]
+3416.013: (dospiral s25s s25e spiral25)  [299.000]

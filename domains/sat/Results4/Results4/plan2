@@ -1,0 +1,8 @@
+0.000: (fly origin s14s)  [63.000]
+530.001: (dospiral s14s s14e spiral14)  [299.000]
+829.002: (fly s14e s14s)  [38.000]
+867.003: (dospiral s14s s14e spiral14)  [299.000]
+1166.004: (fly s14e s14s)  [38.000]
+1204.005: (dospiral s14s s14e spiral14)  [299.000]
+1503.006: (fly s14e s15s)  [172.000]
+1675.007: (dospiral s15s s15e spiral15)  [299.000]

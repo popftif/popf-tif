@@ -1,0 +1,63 @@
+(define (problem prob)
+(:domain UAV)
+(:objects v-885726 v-897381 v-903747  - destination
+        spiral3 spiral4 spiral5  - spiral
+         - smallLawnmower
+        - largeLawnmower
+       origin s3s s3e s4s s4e s5s s5e  - waypoint)
+(:init
+  (= (n-pattern) 0)
+  (= (expected-time) 0)
+  (= (previous-expected-time) 0)
+  (= (total-probability) 0)
+  (= (previous-total-probability) 0)
+  (= (heuristic-approximation) 0.001)
+  (at origin)
+  (= (previous-probability v-885726) 0.33333334)
+  (= (probability v-885726) 0.33333334)
+  (= (previous-probability v-897381) 0.33333334)
+  (= (probability v-897381) 0.33333334)
+  (= (previous-probability v-903747) 0.33333334)
+  (= (probability v-903747) 0.33333334)
+  (= (is-doing spiral3) 0)
+  (= (timefor spiral3) 299)
+  (beginAt s3s spiral3)
+  (endAt s3e spiral3)
+  (at 642 (active spiral3))
+  (at 1408 (not (active spiral3)))
+  (= (n-pattern-active spiral3) 1025.0)
+ (= (distance origin s3s) 18)
+  (= (distance s3e s3s) 38)
+  (= (distance s3e s4s) 65)
+  (= (distance s3e s5s) 153)
+  (= (is-doing spiral4) 0)
+  (= (timefor spiral4) 299)
+  (beginAt s4s spiral4)
+  (endAt s4e spiral4)
+  (at 629 (active spiral4))
+  (at 1812 (not (active spiral4)))
+  (= (n-pattern-active spiral4) 1220.5)
+ (= (distance origin s4s) 110)
+  (= (distance s4e s3s) 126)
+  (= (distance s4e s4s) 38)
+  (= (distance s4e s5s) 107)
+  (= (is-doing spiral5) 0)
+  (= (timefor spiral5) 299)
+  (beginAt s5s spiral5)
+  (endAt s5e spiral5)
+  (at 1724 (active spiral5))
+  (at 3585 (not (active spiral5)))
+  (= (n-pattern-active spiral5) 2654.5)
+ (= (distance origin s5s) 201)
+  (= (distance s5e s3s) 209)
+  (= (distance s5e s4s) 108)
+  (= (distance s5e s5s) 38)
+)
+(:goal (and (> (total-probability) 0)))
+(:metric maximize ( - (total-probability) (* 0.1 (expected-time)))))
+; SpiralSearchPattern 3 14441.0 98621.0 2000.0 2500.0 299 642 1408 336
+; SpiralSearchPattern 4 11441.0 92621.0 2000.0 2500.0 299 629 1812 336
+; SpiralSearchPattern 5 5941.0 89621.0 2000.0 2500.0 299 1724 3585 173
+; UAV 15578.182336476111 98431.52082860598 0.007397016422640235 -64.99999957910957 true 0.0
+; Target 14664.634805542326 98637.97926228328 -0.4888363359711967 6.9829104989706305 true 5184 4386.0 91110.75
+; Time 6153 false true

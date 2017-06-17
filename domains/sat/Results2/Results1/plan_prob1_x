@@ -1,0 +1,19 @@
+;;;; Solution Found
+; States evaluated: 190096
+; Cost: 0.942
+; External Solver: 1.830
+; Time 63.51
+0.000: (fly origin s4s)  [193.000]
+913.001: (dospiral s4s s4e spiral4)  [299.000]
+1212.002: (fly s4e s4s)  [38.000]
+1250.003: (dospiral s4s s4e spiral4)  [299.000]
+1549.004: (fly s4e s1s)  [122.000]
+1671.005: (dospiral s1s s1e spiral1)  [299.000]
+1970.006: (fly s1e s3s)  [170.000]
+2140.007: (dospiral s3s s3e spiral3)  [299.000]
+2439.008: (fly s3e s5s)  [86.000]
+2525.009: (dospiral s5s s5e spiral5)  [299.000]
+2824.010: (fly s5e s5s)  [38.000]
+2862.011: (dospiral s5s s5e spiral5)  [299.000]
+3161.012: (fly s5e s7s)  [24.000]
+3185.013: (dospiral s7s s7e spiral7)  [299.000]

@@ -1,0 +1,11 @@
+;;;; Solution Found
+; States evaluated: 37
+; Cost: 0.708
+; External Solver: 0.000
+; Time 0.00
+0.000: (fly origin s7s)  [60.000]
+781.001: (dospiral s7s s7e spiral7)  [299.000]
+1080.002: (fly s7e s7s)  [38.000]
+1118.003: (dospiral s7s s7e spiral7)  [299.000]
+1417.004: (fly s7e s7s)  [38.000]
+1455.005: (dospiral s7s s7e spiral7)  [299.000]

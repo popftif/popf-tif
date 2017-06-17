@@ -1,0 +1,47 @@
+(define (problem prob)
+(:domain UAV)
+(:objects v-894088 v-906216  - destination
+        spiral13 spiral14  - spiral
+         - smallLawnmower
+        - largeLawnmower
+       origin s13s s13e s14s s14e  - waypoint)
+(:init
+  (= (n-pattern) 0)
+  (= (expected-time) 0)
+  (= (previous-expected-time) 0)
+  (= (total-probability) 0)
+  (= (previous-total-probability) 0)
+  (= (heuristic-approximation) 0.001)
+  (at origin)
+  (= (previous-probability v-894088) 0.5)
+  (= (probability v-894088) 0.5)
+  (= (previous-probability v-906216) 0.5)
+  (= (probability v-906216) 0.5)
+  (= (is-doing spiral13) 0)
+  (= (timefor spiral13) 299)
+  (beginAt s13s spiral13)
+  (endAt s13e spiral13)
+  (at 261 (active spiral13))
+  (at 1282 (not (active spiral13)))
+  (= (n-pattern-active spiral13) 771.5)
+ (= (distance origin s13s) 24)
+  (= (distance s13e s13s) 38)
+  (= (distance s13e s14s) 113)
+  (= (is-doing spiral14) 0)
+  (= (timefor spiral14) 299)
+  (beginAt s14s spiral14)
+  (endAt s14e spiral14)
+  (at 2011 (active spiral14))
+  (at 4249 (not (active spiral14)))
+  (= (n-pattern-active spiral14) 3130.0)
+ (= (distance origin s14s) 117)
+  (= (distance s14e s13s) 112)
+  (= (distance s14e s14s) 38)
+)
+(:goal (and (> (total-probability) 0)))
+(:metric maximize ( - (total-probability) (* 0.1 (expected-time)))))
+; SpiralSearchPattern 13 11453.0 92547.0 2000.0 2500.0 299 261 1282 501
+; SpiralSearchPattern 14 5953.0 89547.0 2000.0 2500.0 299 2011 4249 499
+; UAV 12135.385435621381 93921.08103490839 -52.25884172004359 -38.652470323117186 true 0.0
+; Target 11965.282751349192 92042.94575242915 1.1062833717778764 9.295691398017004 true 3115 4386.0 91110.75
+; Time 5294 false true

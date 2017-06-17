@@ -1,0 +1,63 @@
+(define (problem prob)
+(:domain UAV)
+(:objects v-1361068 v-1376322 v-1376333  - destination
+        spiral16 spiral17 spiral18  - spiral
+         - smallLawnmower
+        - largeLawnmower
+       origin s16s s16e s17s s17e s18s s18e  - waypoint)
+(:init
+  (= (n-pattern) 0)
+  (= (expected-time) 0)
+  (= (previous-expected-time) 0)
+  (= (total-probability) 0)
+  (= (previous-total-probability) 0)
+  (= (heuristic-approximation) 0.001)
+  (at origin)
+  (= (previous-probability v-1361068) 0.33333334)
+  (= (probability v-1361068) 0.33333334)
+  (= (previous-probability v-1376322) 0.33333334)
+  (= (probability v-1376322) 0.33333334)
+  (= (previous-probability v-1376333) 0.33333334)
+  (= (probability v-1376333) 0.33333334)
+  (= (is-doing spiral16) 0)
+  (= (timefor spiral16) 299)
+  (beginAt s16s spiral16)
+  (endAt s16e spiral16)
+  (at 406 (active spiral16))
+  (at 1314 (not (active spiral16)))
+  (= (n-pattern-active spiral16) 860.0)
+ (= (distance origin s16s) 62)
+  (= (distance s16e s16s) 38)
+  (= (distance s16e s17s) 156)
+  (= (distance s16e s18s) 138)
+  (= (is-doing spiral17) 0)
+  (= (timefor spiral17) 299)
+  (beginAt s17s spiral17)
+  (endAt s17e spiral17)
+  (at 1576 (active spiral17))
+  (at 3377 (not (active spiral17)))
+  (= (n-pattern-active spiral17) 2476.5)
+ (= (distance origin s17s) 155)
+  (= (distance s17e s16s) 128)
+  (= (distance s17e s17s) 38)
+  (= (distance s17e s18s) 25)
+  (= (is-doing spiral18) 0)
+  (= (timefor spiral18) 299)
+  (beginAt s18s spiral18)
+  (endAt s18e spiral18)
+  (at 1482 (active spiral18))
+  (at 3254 (not (active spiral18)))
+  (= (n-pattern-active spiral18) 2368.0)
+ (= (distance origin s18s) 148)
+  (= (distance s18e s16s) 115)
+  (= (distance s18e s17s) 61)
+  (= (distance s18e s18s) 38)
+)
+(:goal (and (> (total-probability) 0)))
+(:metric maximize ( - (total-probability) (* 0.1 (expected-time)))))
+; SpiralSearchPattern 16 13022.0 93257.0 2000.0 2500.0 299 406 1314 347
+; SpiralSearchPattern 17 6022.0 89257.0 2000.0 2500.0 299 1576 3377 335
+; SpiralSearchPattern 18 7522.0 88757.0 2000.0 2500.0 299 1482 3254 34
+; UAV 12180.31258068841 97204.35836281016 24.4061076034961 -60.24401971686964 true 0.0
+; Target 14652.179619519251 98321.64666472108 -1.2592192222992935 6.885809099168519 true 4386 4386.0 91110.75
+; Time 6078 false true

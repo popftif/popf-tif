@@ -1,0 +1,12 @@
+;;;; Solution Found
+; States evaluated: 47
+; Cost: 0.004
+; Time 0.00
+0.000: (fly origin s1s)  [115.000]
+477.001: (dospiral s1s s1e spiral1)  [299.000]
+776.002: (fly s1e s1s)  [38.000]
+814.003: (dospiral s1s s1e spiral1)  [299.000]
+1113.004: (fly s1e s1s)  [38.000]
+1151.005: (dospiral s1s s1e spiral1)  [299.000]
+1450.006: (fly s1e s1s)  [38.000]
+1488.007: (dospiral s1s s1e spiral1)  [299.000]

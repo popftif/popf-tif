@@ -1,0 +1,17 @@
+;;;; Solution Found
+; States evaluated: 201145
+; Cost: 0.903
+; External Solver: 1.170
+; Time 63.49
+0.000: (fly origin s20s)  [273.000]
+1422.001: (dospiral s20s s20e spiral20)  [299.000]
+1721.002: (fly s20e s20s)  [38.000]
+1759.003: (dospiral s20s s20e spiral20)  [299.000]
+2058.004: (fly s20e s18s)  [437.000]
+2495.005: (dospiral s18s s18e spiral18)  [299.000]
+2794.006: (fly s18e s18s)  [38.000]
+2832.007: (dospiral s18s s18e spiral18)  [299.000]
+3131.008: (fly s18e s21s)  [739.000]
+3870.009: (dospiral s21s s21e spiral21)  [299.000]
+4169.010: (fly s21e s21s)  [38.000]
+4207.011: (dospiral s21s s21e spiral21)  [299.000]

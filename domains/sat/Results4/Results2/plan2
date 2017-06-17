@@ -1,0 +1,8 @@
+0.000: (fly origin s19s)  [76.000]
+332.001: (dospiral s19s s19e spiral19)  [299.000]
+631.002: (fly s19e s19s)  [38.000]
+669.003: (dospiral s19s s19e spiral19)  [299.000]
+968.004: (fly s19e s18s)  [165.000]
+1133.005: (dospiral s18s s18e spiral18)  [299.000]
+1432.006: (fly s18e s19s)  [131.000]
+1563.007: (dospiral s19s s19e spiral19)  [299.000]

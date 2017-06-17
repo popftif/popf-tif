@@ -1,0 +1,34 @@
+(define (problem prob)
+(:domain UAV)
+(:objects v-388250  - destination
+        spiral16  - spiral
+         - smallLawnmower
+        - largeLawnmower
+       origin s16s s16e  - waypoint)
+(:init
+  (= (n-pattern) 0)
+  (= (expected-time) 0)
+  (= (previous-expected-time) 0)
+  (= (total-probability) 0)
+  (= (previous-total-probability) 0)
+(= (heuristic-expected spiral16) 0.001)
+(= (heuristic-approximation spiral16) 0.001)
+  (at origin)
+  (= (previous-probability v-388250) 1.0)
+  (= (probability v-388250) 1.0)
+  (= (is-doing spiral16) 0)
+  (= (timefor spiral16) 299)
+  (beginAt s16s spiral16)
+  (endAt s16e spiral16)
+  (at 1655 (active spiral16))
+  (at 3697 (not (active spiral16)))
+  (= (n-pattern-active spiral16) 2676.0)
+ (= (distance origin s16s) 94)
+  (= (distance s16e s16s) 38)
+)
+(:goal (and (> (total-probability) 0)))
+(:metric maximize ( - (total-probability) (* 0.1 (expected-time)))))
+; SpiralSearchPattern 16 75017.0 76334.0 2000.0 2500.0 299 1655 3697 1000
+; UAV 73490.38197728524 82218.95132812718 60.36528069462087 -24.104623761005012 true 0.0
+; Target 72026.00477468601 82961.26925303838 -6.991829433102446 -0.33811414995873407 true 1729 4386.0 91110.75
+; Time 6743 false true

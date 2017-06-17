@@ -1,0 +1,8 @@
+0.000: (fly origin s23s)  [38.000]
+580.001: (dospiral s23s s23e spiral23)  [299.000]
+879.002: (fly s23e s22s)  [59.000]
+938.003: (dospiral s22s s22e spiral22)  [299.000]
+1237.004: (fly s22e s22s)  [38.000]
+1275.005: (dospiral s22s s22e spiral22)  [299.000]
+1574.006: (fly s22e s22s)  [38.000]
+1612.007: (dospiral s22s s22e spiral22)  [299.000]
