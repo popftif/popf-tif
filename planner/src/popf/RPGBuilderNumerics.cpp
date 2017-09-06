@@ -3249,7 +3249,7 @@ void RPGBuilder::buildRPGNumericEffects()
                 ++prcItr;
             }
             
-        }        
+        }
 
 
                 
@@ -3301,6 +3301,7 @@ void RPGBuilder::buildRPGNumericEffects()
                 string name = RPGBuilder::getPNE(v)->getHead()->getName();
                 if ( find(special.begin(),special.end(),name)!=special.end()){
                     dependentExSo.insert(v);
+                    if (localDebug) cout << "variable " <<  *(getPNE(v)) << " is inserted in dependency of external solver" << endl;
                 }
                 
                 if ( find(parameters.begin(),parameters.end(),name)==parameters.end())

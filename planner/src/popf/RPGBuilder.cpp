@@ -2279,6 +2279,8 @@ list<int> RPGBuilder::fakeRPGNumericExSoEffects;
 vector<double> RPGBuilder::initialFluents;
     set<int> RPGBuilder::specialExSo;
     set<int> RPGBuilder::dependentExSo;
+    vector<bool> RPGBuilder::specialVariables;
+    vector<bool> RPGBuilder::dependentVariables;
     
 vector<RPGBuilder::ArtificialVariable> RPGBuilder::rpgArtificialVariables;
 vector<list<int> > RPGBuilder::rpgArtificialVariablesToPreconditions;
@@ -2493,7 +2495,7 @@ void RPGBuilder::initialise()
     for (operator_list::const_iterator os = current_analysis->the_domain->ops->begin();
             os != current_analysis->the_domain->ops->end(); ++os) {
         if (RPGdebug) cout << (*os)->name->getName() << "\n";
-        instantiatedOp::instantiate(*os, current_analysis->the_problem, *theTC);
+        instantiatedOp::instantiate(*os, current_analysis->the_problem, *theTC, ExternalSolver::isActive);
         if (RPGdebug) cout << instantiatedOp::howMany() << " so far\n";
     };
     if (RPGdebug && Globals::globalVerbosity & 65536) cout << instantiatedOp::howMany() << "\n";
@@ -2512,7 +2514,7 @@ void RPGBuilder::initialise()
             if (RPGdebug) {
                 cout << "\tNumber of operators before filtering: " << instantiatedOp::howMany() << "\n";
             }
-            instantiatedOp::filterOps(theTC);
+            if(!ExternalSolver::isActive) instantiatedOp::filterOps(theTC);
 
             if (RPGdebug) {
                 cout << "\tNumber of operators after filtering: " << instantiatedOp::howMany() << "\n";
@@ -2527,7 +2529,11 @@ void RPGBuilder::initialise()
     Globals::markThatActionsInPlanHaveToBeKept();
     #endif
     
-    instantiatedOp::assignStateIDsToNonStaticLiteralsAndPNEs();
+    list<string> externalSolverVariables;
+    if (ExternalSolver::isActive) externalSolverVariables = ExternalSolver::externalSolver->getParameters();
+
+    
+    instantiatedOp::assignStateIDsToNonStaticLiteralsAndPNEs(externalSolverVariables);
     
     if (RPGdebug) cout << "\nCaching action-literal dependencies\n";
 
@@ -2602,6 +2608,8 @@ void RPGBuilder::initialise()
     instantiatedOps = vector<instantiatedOp*>(operatorCount);
     realRogueActions = vector<op_type>(operatorCount);
     pnes = vector<PNE*>(pneCount);
+    specialVariables = vector<bool>(pneCount, false);
+    dependentVariables = vector<bool>(pneCount, false);
 
     TimedPrecEffCollector::doInit(); // for robustness checking - set which predicate names are legal, and how many parameters they have
 
@@ -2681,6 +2689,22 @@ void RPGBuilder::initialise()
             sID = (*pneItr)->getStateID();
             if (sID != -1) {
                 pnes[sID] = *pneItr;
+                
+                if (ExternalSolver::isActive){
+                    list<string> special = ExternalSolver::externalSolver->getParameters();
+                    list<string> parameters = ExternalSolver::externalSolver->getDependencies();
+                    string name = RPGBuilder::getPNE(sID)->getHead()->getName();
+                    if ( find(special.begin(),special.end(),name)!=special.end()){
+                        specialVariables[sID] = true;
+                        if (PNEdebug) cout << *(*pneItr) << " with state ID " << sID << " is a special variable \n";
+
+                    }
+                    if ( find(parameters.begin(),parameters.end(),name)!=parameters.end()){
+                        dependentVariables[sID] = true;
+                        if (PNEdebug) cout << *(*pneItr) << " with state ID " << sID << " is a dependent variable \n";
+                    }
+                    
+                }
             }
             if (PNEdebug) cout << *(*pneItr) << " with state ID " << sID << " and global ID " << (*pneItr)->getGlobalID() << "\n";
         }
@@ -2869,7 +2893,30 @@ void RPGBuilder::initialise()
 
                 {
 
-
+                    // check if start numeric effects contains a dependent variable
+                    if (ExternalSolver::isActive){
+                        list<NumericEffect>::iterator effItr = c.startNumericEff.begin();
+                        const list<NumericEffect>::iterator effEnd = c.startNumericEff.end();
+                        bool hasDependent = false;
+                        bool hasSpecial = false;
+                        for (; effItr != effEnd; ++effItr) {
+                            int fluentIndex = effItr->fluentIndex;
+                            if (dependentVariables[fluentIndex]) hasDependent = true;
+                            if (specialVariables[fluentIndex]) hasSpecial = true;
+                        }
+                        
+                        if (hasDependent && !hasSpecial){
+                            if (RPGdebug) cout << "need to add fake effect" << endl;
+                            for (int i = 0; i < specialVariables.size(); ++i){
+                                if (specialVariables[i]){
+                                    //NumericEffect fakeEffect(VAL::E_INCREASE,i, 0, 0 ,0);
+                                    //c.startNumericEff.push_back(fakeEffect);
+                                }
+                            }
+                            
+                        }
+                        
+                    }
 
                     actionsToStartNumericEffects[operatorID] = c.startNumericEff;
 

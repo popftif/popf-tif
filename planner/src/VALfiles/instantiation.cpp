@@ -37,6 +37,7 @@
 #include "typecheck.h"
 #include "Exceptions.h"
 #include "main.h"
+#include <algorithm>
 
 
 using std::ifstream;
@@ -1792,7 +1793,7 @@ PDCIterator* ParameterDomainConstraints::getIterator()
 }
 
 
-void instantiatedOp::instantiate(const VAL::operator_ * op, const VAL::problem * prb, VAL::TypeChecker & tc)
+void instantiatedOp::instantiate(const VAL::operator_ * op, const VAL::problem * prb, VAL::TypeChecker & tc, bool isExternalSolver)
 {
     FastEnvironment e(static_cast<const id_var_symbol_table*>(op->symtab)->numSyms());
 
@@ -1821,7 +1822,6 @@ void instantiatedOp::instantiate(const VAL::operator_ * op, const VAL::problem *
     }
 #endif
 
-
     //cout << c << " candidates to consider\n";
     SimpleEvaluator se(&tc, 0, ISC());
     if (!opParamCount) {
@@ -1849,7 +1849,6 @@ void instantiatedOp::instantiate(const VAL::operator_ * op, const VAL::problem *
             vars[i] = *p;
         }
     }
-
     auto_ptr<PDCIterator> options(pdc.getIterator());
 
     while (options->isValid()) {
@@ -1858,10 +1857,9 @@ void instantiatedOp::instantiate(const VAL::operator_ * op, const VAL::problem *
         }
         if (!TIM::selfMutex(op, makeIterator(&e, op->parameters->begin()),
                             makeIterator(&e, op->parameters->end()))) {
-
             se.prepareForVisit(&e);
             const_cast<VAL::operator_*>(op)->visit(&se);
-            if (!se.reallyFalse()) {
+            if (!se.reallyFalse() || isExternalSolver) {
                 FastEnvironment * ecpy = e.copy();
                 instantiatedOp * o = new instantiatedOp(op, ecpy);
                 if (instOps.insert(o)) {
@@ -2414,7 +2412,7 @@ int instantiatedOp::nonStaticPNECount = 0;
     
 bool instantiatedOp::staticFactsAndLiteralsHaveBeenGivenIDs = false;
 
-void instantiatedOp::assignStateIDsToNonStaticLiteralsAndPNEs()
+void instantiatedOp::assignStateIDsToNonStaticLiteralsAndPNEs(list<string>& externalSolverVariables)
 {
     nonStaticLiteralCount = 0;
     nonStaticPNECount = 0;
@@ -2454,7 +2452,9 @@ void instantiatedOp::assignStateIDsToNonStaticLiteralsAndPNEs()
         const PNEStore::iterator psEnd = instantiatedOp::pnesEnd();
         
         for (; psItr != psEnd; ++psItr) {
-            if (!EFT((*psItr)->getHead())->isStatic()) {
+            // check if it's an external variable
+            bool isExternalVariable = find(externalSolverVariables.begin(), externalSolverVariables.end(),(*psItr)->getHead()->getName()) != externalSolverVariables.end();
+            if (!EFT((*psItr)->getHead())->isStatic() || isExternalVariable) {
                 (*psItr)->setStateID(nonStaticPNECount);
                 ++nonStaticPNECount;
             }

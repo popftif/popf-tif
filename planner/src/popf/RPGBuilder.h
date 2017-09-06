@@ -987,7 +987,9 @@ protected:
     static vector<double> initialFluents;
     static set<int> specialExSo;
     static set<int> dependentExSo;
-
+    static vector<bool> specialVariables;
+    static vector<bool> dependentVariables;
+    
     static vector<list<int> > actionsToRPGNumericStartPreconditions;
     static vector<list<int> > actionsToRPGNumericInvariants;
     static vector<list<int> > actionsToRPGNumericEndPreconditions;

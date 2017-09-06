@@ -613,7 +613,7 @@ public:
         : id(0), op(o), env(e) {
     }
     
-    static void instantiate(const VAL::operator_ * op, const VAL::problem * p,VAL::TypeChecker & tc);
+    static void instantiate(const VAL::operator_ * op, const VAL::problem * p,VAL::TypeChecker & tc, bool isExternalSolver = false);
     
     ~instantiatedOp() {
         delete env;
@@ -626,7 +626,7 @@ public:
      *
      * @see Literal::stateID , PNE::stateID
      */
-    static void assignStateIDsToNonStaticLiteralsAndPNEs();
+    static void assignStateIDsToNonStaticLiteralsAndPNEs(list<string>& externalSolverVariables);
     
     /** @brief  Erase the given instantiated operator. */
     static void opErase(const instantiatedOp * o) {
