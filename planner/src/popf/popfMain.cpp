@@ -96,12 +96,12 @@ void usage(char * argv[])
     cout << "By releasing this code we imply no warranty as to its reliability\n";
     cout << "and its use is entirely at your own risk.\n\n";
 #ifdef STOCHASTICDURATIONS
-    cout << "Usage: " << argv[0] << " [OPTIONS] <success fraction> domainfile problemfile [planfile, if -r specified]\n\n";
+    cout << "Usage: " << argv[0] << " [OPTIONS] <success fraction> domainfile problemfile [external_module input, if -x specified]\n\n";
 #else
-    cout << "Usage: " << argv[0] << " [OPTIONS] domainfile problemfile [planfile, if -r specified]\n\n";
+    cout << "Usage: " << argv[0] << " [OPTIONS] domainfile problemfile [external_module input, if -x specified]\n\n";
 #endif
     cout << "Options are: \n\n";
-    cout << "\t" << "-citation" << "\t" << "Display citation to relevant conference paper (ICAPS 2010);\n";
+    cout << "\t" << "-x" << "\t\t" << "Activate External Module;\n";
     cout << "\t" << "-b" << "\t\t" << "Disable best-first search - if EHC fails, abort;\n";
     cout << "\t" << "-E" << "\t\t" << "Skip EHC: go straight to best-first search;\n";
     cout << "\t" << "-e" << "\t\t" << "Use standard EHC instead of steepest descent;\n";
