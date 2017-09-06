@@ -1,0 +1,8 @@
+;0.001: (make_tea tea1 socket1 ) [1.000]
+;0.002: (delivery_window table1 ) [10000000.000]
+0.003: (loosing_heat_action tea1 ) [1000.000]
+998.004: (deliver tea1 table1 ) [2.000]
+998.005: (make_toast toast1 socket1 ) [2.000]
+998.006: (loosing_heat_action toast1 ) [1000.000]
+1996.007: (deliver toast1 table1 ) [2.000]
+

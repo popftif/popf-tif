@@ -1,0 +1,3 @@
+add_test(pipes-notankage-pfile1-plan-steps-should-exist ${checkplanstepsexist_PATH} ${insttest_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-notankage_nontemporal-strips-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-notankage_nontemporal-strips-problem.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-notankage_nontemporal-strips-plan)
+add_test(pipes-tankage-pfile1-plan-steps-should-exist ${checkplanstepsexist_PATH} ${insttest_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-tankage_nontemporal-strips-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-tankage_nontemporal-strips-problem.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pipesworld-tankage_nontemporal-strips-plan)
+

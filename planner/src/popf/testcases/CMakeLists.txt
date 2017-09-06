@@ -1,0 +1,13 @@
+set(popf2_then_validate ${CMAKE_CURRENT_SOURCE_DIR}/popf2thenvalidate)
+set(popf2_read_plan_then_validate ${CMAKE_CURRENT_SOURCE_DIR}/popf2readplanthenvalidate)
+
+add_subdirectory(LPBFTests)
+add_subdirectory(TILTests)
+add_subdirectory(pfile1tests)
+add_subdirectory(validationtests)
+add_subdirectory(posthoctests)
+add_subdirectory(ctseffects)
+add_subdirectory(coordination)
+add_subdirectory(lpsameasstp)
+add_subdirectory(nonumbers)
+add_subdirectory(AshutoshVerma)

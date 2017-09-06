@@ -1,0 +1,1 @@
+add_test(airport20-plan-steps-should-exist ${checkplanstepsexist_PATH} ${insttest_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/airport-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/airport-problem.pddl ${CMAKE_CURRENT_SOURCE_DIR}/airport-plan)

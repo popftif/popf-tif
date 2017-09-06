@@ -1,0 +1,8 @@
+0.000: (navigate auv1 w2 w4)  [5.000]
+0.001: (navigate auv2 w3 w5)  [5.000]
+5.002: (localise_at_waypoint auv1 w4 fish1) [5.000]
+10.003: (shine_torch auv2 w5 fish1 torch1) [10.004]
+;10.004: (calibrate auv1 camera1 w4 fish1) [5.000]
+15.005: (take_image_med auv1 w4 fish1 camera1) [23.000]
+38.006: (navigate auv1 w4 w2)  [5.000]
+43.007: (communicate_image_data auv1 fish1 w2) [15.000]

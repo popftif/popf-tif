@@ -1,0 +1,13 @@
+; Time 3.79
+; ParsingTime
+; NrActions 8
+; MakeSpan
+; MetricValue
+0.01: (TRM A1 M1 L1) [69.0]
+69.02: (CT A1 M1 L1) [47.0]
+116.03: (AM A1 M1 L1) [0.0]
+116.04: (AEEM A1 M1 L1 ae) [61.0]
+177.05: (RRC A1 M1 L1 ae) [220.0]
+397.06: (RAB A1 M1 L1 ae) [61.0]
+458.07: (AEEI A1 M1 L1 ae) [47.0]
+505.08: (BS A1 M1 L1 MS1 MS2 ae) [31.0]

@@ -1,0 +1,8 @@
+0.000: (wait_cb1)  [0.001]
+0.001: (wait_cb1-condeff0-yes)  [0.001]
+0.002: (wait_cb1-endof-condeffs)  [0.001]
+0.003: (open-sd1)  [0.001]
+0.004: (close_cb1)  [0.001]
+0.005: (wait_cb1)  [0.001]
+0.006: (wait_cb1-condeff0-no-0)  [0.001]
+0.007: (wait_cb1-endof-condeffs)  [0.001]

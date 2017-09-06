@@ -1,0 +1,13 @@
+0.001: (switch_on instrument0 satellite0 ) [2.000]
+2.002: (turn_to satellite0 groundstation2 phenomenon6 ) [50.730]
+52.733: (calibrate satellite0 instrument0 groundstation2 ) [5.900]
+52.734: (turn_to satellite0 phenomenon4 groundstation2 ) [39.730]
+92.465: (take_image satellite0 phenomenon4 instrument0 thermograph0 ) [7.000]
+99.466: (turn_to satellite0 phenomenon6 phenomenon4 ) [2.098]
+101.565: (take_image satellite0 phenomenon6 instrument0 thermograph0 ) [7.000]
+109.681: (turn_to satellite0 star5 phenomenon6 ) [29.320]
+139.002: (send_image satellite0 antenna0 phenomenon6 thermograph0 ) [6.000]
+139.003: (take_image satellite0 star5 instrument0 thermograph0 ) [7.000]
+145.003: (send_image satellite0 antenna0 phenomenon4 thermograph0 ) [19.520]
+164.524: (send_image satellite0 antenna0 star5 thermograph0 ) [12.170]
+

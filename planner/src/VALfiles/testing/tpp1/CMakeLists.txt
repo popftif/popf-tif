@@ -1,0 +1,15 @@
+
+add_test(tpp1-1 ${insttest_PATH} "(drive truck1 l3 l2 t0 t1)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-2 ${insttest_PATH} "(load package1 truck1 a2 l2)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-3 ${insttest_PATH} "(drive truck1 l2 l3 t1 t2)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-4 ${insttest_PATH} "(unload package1 truck1 a2 l3)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-5 ${insttest_PATH} "(deliver package1 l3 t2 t2)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-6 ${insttest_PATH} "(drive truck1 l3 l2 t2 t3)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-7 ${insttest_PATH} "(load package2 truck1 a2 l2)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-8 ${insttest_PATH} "(load package3 truck1 a1 l2)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-9 ${insttest_PATH} "(drive truck1 l2 l1 t3 t4)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-10 ${insttest_PATH} "(unload package3 truck1 a1 l1)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-11 ${insttest_PATH} "(unload package2 truck1 a2 l1)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-12 ${insttest_PATH} "(deliver package3 l1 t4 t4)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+add_test(tpp1-13 ${insttest_PATH} "(deliver package2 l1 t4 t4)" ${CMAKE_CURRENT_SOURCE_DIR}/domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/pfile01.pddl)
+

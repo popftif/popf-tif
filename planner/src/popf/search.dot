@@ -1,0 +1,26 @@
+digraph SearchSpace{
+node [style = filled]
+	1 [ label="O: 1,\nH: 5",color="#0000ff"];
+1 -> 2 [label = "(skip_bingo g1) at start"]
+	2 [ label="O: 2,\nH: 4",color="#00cbff"];
+2 -> 3 [label = "(move r1 nurse_station private_2 cs1) at start"]
+2 -> 4 [label = "(move r1 nurse_station private_1 cs1) at start"]
+2 -> 5 [label = "TIL "]
+	3 [ label="O: 3,\nH: 4",color="#00cbff"];
+3 -> 6 [label = "(do_telepresence r1 s2 user2 private_2 cs1) at start"]
+	4 [ label="O: 4,\nH: 4",color="#00cbff"];
+	5 [ label="O: 5,\nH: 4",color="#00cbff"];
+	6 [ label="O: 6,\nH: 3",color="#00ff65"];
+6 -> 7 [label = "(move r1 private_2 private_1 cs1) at start"]
+	7 [ label="O: 7,\nH: 2",color="#65ff00"];
+7 -> 8 [label = "TIL "]
+	8 [ label="O: 8,\nH: 2",color="#65ff00"];
+8 -> 9 [label = "TIL "]
+	9 [ label="O: 9,\nH: 2",color="#65ff00"];
+9 -> 10 [label = "TIL "]
+	10 [ label="O: 10,\nH: 2",color="#65ff00"];
+10 -> 11 [label = "(do_telepresence r1 s1 user1 private_1 cs1) at start"]
+	11 [ label="O: 11,\nH: 1",color="#ffcc00"];
+11 -> 12 [label = "(move r1 private_1 nurse_station cs1) at start"]
+	12 [ label="O: 12,\nH: 0",color="#ff0000"];
+}

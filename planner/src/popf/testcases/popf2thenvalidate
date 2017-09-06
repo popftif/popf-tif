@@ -1,0 +1,61 @@
+#!/usr/bin/perl -w
+
+if (scalar(@ARGV) < 4) {
+	print "Usage: popf2thenvalidate <path to validate executable> <path to popf2 executable> <domain> <problem> <parameters to pass to popf2>\n";
+	exit(1);
+}
+
+$valpath = shift @ARGV;
+
+$cmdline = shift(@ARGV);
+
+$domain = shift(@ARGV);
+$problem = shift(@ARGV);
+
+while (scalar(@ARGV)) {
+	$cmdline .= (" " . shift(@ARGV));
+}
+
+open IN, "$cmdline $domain $problem |";
+
+$writing = 0;
+
+while (<IN>) {
+
+	if (m/;;;; Solution Found/) {
+		$writing = 1;
+		open OUT, "> tmp-solution-1";
+	} elsif (m/Post-hoc optimised solution/) {
+		close OUT;
+		$writing = 2;
+		open OUT, "> tmp-solution-2";
+	} elsif ($writing > 0 && m/:/) {
+		print OUT;
+	}
+
+}
+
+if ($writing == 0) {
+	print "No solutions found\n";
+	exit(1);
+}
+
+close OUT;
+
+$retval = 0;
+
+for ($i = 1; $i <= $writing; $i++) {
+	open IN, "$valpath -t 0.001 $domain $problem tmp-solution-$i |";
+
+	while (<IN>) {
+		if (m/Plan failed to execute/) {
+			print "Solution $i failed to validate\n";
+			$retval = 1;
+		}
+	}
+	close IN;
+}
+
+print "All done, returning $retval\n";
+
+exit($retval);

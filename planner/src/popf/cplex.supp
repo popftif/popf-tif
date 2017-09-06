@@ -1,0 +1,7 @@
+{
+   cplex_setName
+   Memcheck:Addr4
+   fun:_ZN12IloExtension7setNameEP11IloGenAllocPKc
+   fun:_ZN15IloExtractableI7setNameEPKc
+}
+

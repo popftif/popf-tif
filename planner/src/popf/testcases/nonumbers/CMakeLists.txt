@@ -1,0 +1,3 @@
+add_test(no-num-satellite-cts-plan-reachable ${popf2_BINARY_DIR}/popf2 -H -r -s -I -D -c -gnonumbers -v1 ${CMAKE_CURRENT_SOURCE_DIR}/satellite-cts-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/satellite-cts-problem-01.pddl ${CMAKE_CURRENT_SOURCE_DIR}/satellite-cts-plan-01)
+add_test(no-num-satellite-cts-can-be-solved ${popf2_BINARY_DIR}/popf2 -I -D -c -gnonumbers -v1 ${CMAKE_CURRENT_SOURCE_DIR}/satellite-cts-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/satellite-cts-problem-01.pddl)
+#add_test(no-num-settlers-di-can-be-solved ${popf2_BINARY_DIR}/popf2 -I -D -c -gnonumbers -v1 ${CMAKE_CURRENT_SOURCE_DIR}/settlers-di-domain.pddl ${CMAKE_CURRENT_SOURCE_DIR}/settlers-di-problem-01.pddl)

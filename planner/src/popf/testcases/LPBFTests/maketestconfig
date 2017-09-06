@@ -1,0 +1,34 @@
+#!/usr/bin/perl -w
+
+open IN, "ls *-domain.pddl |";
+open OUT, "> Test.txt";
+
+while (<IN>) {
+
+	chomp;
+	my $domain = $_;
+	s/domain/problem/;
+	my $problem = $_;
+	
+	s/-problem//;
+	s/.pddl//;
+
+	my $firstbit = "add_test($_";
+	my $lastbit = "\${CMAKE_CURRENT_SOURCE_DIR}/$domain \${CMAKE_CURRENT_SOURCE_DIR}/$problem)\n";
+
+
+	print OUT "${firstbit}-defaults \${popf2_BINARY_DIR}/popf2 -I $lastbit";
+        print OUT "${firstbit}-old-heuristic \${popf2_BINARY_DIR}/popf2 -I -c $lastbit";
+	print OUT "${firstbit}-total-order \${popf2_BINARY_DIR}/popf2 -I -T $lastbit";
+        print OUT "${firstbit}-defaults-no-action-compression \${popf2_BINARY_DIR}/popf2 -I -k $lastbit";
+	print OUT "${firstbit}-old-heuristic-no-action-compression \${popf2_BINARY_DIR}/popf2 -I -k -c $lastbit";
+        print OUT "${firstbit}-total-order-no-action-compression \${popf2_BINARY_DIR}/popf2 -T -I -k $lastbit";
+	print OUT "\n";
+
+
+
+}
+
+close IN;
+close OUT;
+

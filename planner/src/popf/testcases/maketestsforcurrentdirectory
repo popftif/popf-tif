@@ -1,0 +1,19 @@
+#!/usr/bin/perl -w
+
+open IN, "ls *domain* |";
+
+while (<IN>) {
+	chomp;
+
+	my $domain = $_;
+	s/domain/problem/;
+	my $pfile = $_;
+	s/-problem.*//;
+	my $testname = $_;
+
+	print "add_test($testname-can-be-solved \${popf2_BINARY_DIR}/popf2 -I -D -c -v1 \${CMAKE_CURRENT_SOURCE_DIR}/$domain \${CMAKE_CURRENT_SOURCE_DIR}/$pfile)\n";
+
+}
+
+close IN;
+

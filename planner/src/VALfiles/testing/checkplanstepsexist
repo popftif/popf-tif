@@ -1,0 +1,45 @@
+#!/usr/bin/perl -w
+
+if (scalar @ARGV  != 4) {
+	print "Usage: checkplanstepsexist <path to insttest executable> <domain> <problem> <solution>\n";
+	exit(1);
+}
+
+$insttest = shift @ARGV;
+$domain = shift @ARGV;
+$problem = shift @ARGV;
+$solution = shift @ARGV;
+
+$testid = 1;
+
+open IN, "< $solution" or die "Cannot open solution file $solution";
+
+while (<IN>) {
+	chomp;
+	s/;.*//;
+	s/[^\(]*\(/(/;
+	s/\).*/)/;
+	s/ *\)/)/;
+	$_ = lc($_);
+
+	if (!($_ eq "")) {
+	
+	print "Running $insttest \"$_\" $domain $problem\n";
+
+	my $retval = system "$insttest \"$_\" $domain $problem";
+	if ($retval != 0) {
+		print "Failed after step $testid\n";
+		close IN;
+		exit(1);
+	}
+	}
+	++$testid;
+
+	
+}
+
+close IN;
+
+print "All plan steps existed\n";
+
+exit(0);
