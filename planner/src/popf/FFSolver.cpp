@@ -50,6 +50,7 @@
 #include "TimewindowsChecker.h"
 #include "ModifiedSearch.h"
 #include "LookAhead.h"
+#include "ExternalSolver.h"
 
 namespace Planner
 {
@@ -5602,8 +5603,8 @@ namespace Planner
                                     } else {
                                         tsSound = (   stateHasProgressedBeyondItsParent(*helpfulActsItr, *(currSQI->state()), *(succ->state()))
                                                    && checkTemporalSoundness(*(succ->state()), *helpfulActsItr)                                  );
+                                        if (ExternalSolver::isActive) tsSound = checkTemporalSoundness(*(succ->state()), *helpfulActsItr);
                                     }
-                                    
                                     if (tsSound) {
                                         succ->heuristicValue.makespan = currSQI->heuristicValue.makespan;
                                     }
