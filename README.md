@@ -15,7 +15,7 @@ cd popf-tif
 
 Get the code:
 ```sh
-git clone https://github.com/chiarapiacentini/popf-tif .
+git clone https://github.com/popftif/popf-tif .
 ```
 
 Configure the sources for building:
