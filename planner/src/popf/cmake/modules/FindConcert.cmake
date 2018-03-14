@@ -8,13 +8,13 @@ find_path(CONCERT_INCLUDES
   NAMES
   ilconcert/iloenv.h
   PATHS
-  /Users/chiara/Applications/IBM/ILOG/CPLEX_Studio1261/concert/include
+  $ENV{CPLEXHOME}/concert/include
 )
 
 find_library(CONCERT
   concert
   PATHS
-  /Users/chiara/Applications/IBM/ILOG/CPLEX_Studio1261/concert/lib/x86-64_osx/static_pic/
+  $ENV{CPLEXHOME}/concert/lib/x86-64_osx/static_pic/
 )
 
 include(FindPackageHandleStandardArgs)

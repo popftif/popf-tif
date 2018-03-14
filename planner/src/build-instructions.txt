@@ -10,7 +10,6 @@
 mkdir ../debug
 cd ../debug
 
-
 cmake -DCMAKE_VERBOSE_MAKEFILE=TRUE -DCMAKE_BUILD_TYPE=Debug ../src
 
 mkdir ../release

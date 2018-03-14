@@ -8,19 +8,19 @@ find_path(CPLEX_INCLUDES
   NAMES
   ilcplex/cplex.h
   PATHS
-  /Users/chiara/Applications/IBM/ILOG/CPLEX_Studio1261/cplex/include
+  $ENV{CPLEXHOME}/cplex/include
 )
 
 find_library(CPLEX
   cplex
   PATHS
-  /Users/chiara/Applications/IBM/ILOG/CPLEX_Studio1261/cplex/lib/x86-64_osx/static_pic/
+  $ENV{CPLEXHOME}/cplex/lib/x86-64_osx/static_pic/
 )
 
 find_library(ILOCPLEX
   ilocplex
   PATHS
-  /Users/chiara/Applications/IBM/ILOG/CPLEX_Studio1261/cplex/lib/x86-64_osx/static_pic/
+  $ENV{CPLEXHOME}/cplex/lib/x86-64_osx/static_pic/
 )
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(cplex DEFAULT_MSG
