@@ -13,7 +13,8 @@
 	(probability ?d - destination) ;; probability that the target is going towards d
 	(previous-probability ?d - destination) ;; probability that the target is going towards d at time t-1
 	(total-probability) ;; probability of finding the target by following current plan
-	(heuristic-approximation) ;; approximation
+	(heuristic-approximation ?p - pattern) ;; approximation
+	(heuristic-expected ?p - pattern) ;; approximation expected time	
 	(previous-total-probability) ;; probability of finding the target at time t-1 by following current plan
 	(is-doing ?p - pattern) ;; added for external-solver
 	(timefor ?p - pattern) 
@@ -22,6 +23,7 @@
 	(previous-expected-time)
 	(n-pattern)
 	(n-pattern-active ?p - pattern)
+	(total-time-pattern)	
 	)
 
 
@@ -46,6 +48,9 @@
 	    (at start (endAt ?to ?p)) 
 	    (at start (at ?from)) 
 	    (at start (active ?p))
+	    (at start (<= (heuristic-approximation ?p ) 100))
+	    (at start (<= (heuristic-expected ?p ) 100))
+	    ;(at start (<= (n-pattern-active ?p) 1000000))	    
 	    )
 	:effect (and 
 	    (at end (at ?to)) 
@@ -54,10 +59,14 @@
 	    (at end (assign (is-doing ?p) 1))
 	    (forall (?d - destination) (and (at end (assign (previous-probability ?d) (probability ?d)))))
 	    (at end (assign (previous-total-probability) (total-probability)))	    
-	    (forall (?d - destination) (and (at end (increase (probability ?d) 1))))
-	    (at end (increase (total-probability) (heuristic-approximation)))
+	    (forall (?d - destination) (and (at end (increase (probability ?d) 0.001))))
+	    (at end (increase (total-probability) (heuristic-approximation ?p)))
+	    (forall (?pp - pattern) (at end (assign (heuristic-approximation ?pp) 0.001)))
 	    (at end (assign (previous-expected-time) (expected-time)))	    
-	    (at end (increase (expected-time) (heuristic-approximation)))
+	    (at end (increase (expected-time) (heuristic-expected ?p)))
+	    ;(forall (?pp - pattern) (at end (assign (heuristic-expected ?pp) (* (/ (n-pattern-active ?pp) (total-time-pattern)) (heuristic-approximation ?pp)))))
+	    (forall (?pp - pattern) (at end (assign (heuristic-expected ?pp) 0.001)))
+	    ;(at end (increase (n-pattern-active ?p) 0))
 	    (at end (assign (n-pattern) (n-pattern-active ?p)))
 	)
     )
